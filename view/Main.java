@@ -5,17 +5,17 @@ public class Main {
   private AlunoController alunocontroller;
   private Scanner scanner;
 
-  public main(){
+  public Main(){
     this.alunoController = new AlunoController();
     this.scanner = new Scanner(System.in);
   }
 
   public static void main (String[]args) {
-    msin view = new main();
+    Main view = new Main();
     view.iniciarMenuPrincipal();
   }
 
-  private void iniciarMeniPrincipal(){
+  private void iniciarMenuPrincipal(){
     int opcao;
 
     while (true) {
@@ -35,7 +35,7 @@ public class Main {
             System.out.println("Saindo do sistema...");
             try {
                 Thread.sleep(2000);
-            } catch (InterruptedException e)
+            } catch (InterruptedException e) {}
             break;
 
         default:
@@ -91,9 +91,9 @@ public class Main {
         System.out.print("Digite o nome do aluno: ");
         String nome = scanner.nextLine();
 
-        System.out.print("Digite o email do aluno: ");
+        System.out.print("Digite o e-mail do aluno: ");
         String email = scanner.nextLine();
 
-        alunoController.cadastrarAluno(id, nome, e-mail);
+        alunoController.cadastrarAluno(id, nome, email);
     }
 }
