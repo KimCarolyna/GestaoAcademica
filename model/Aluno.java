@@ -1,3 +1,5 @@
+package br.edu.universidade;
+
 public class Aluno{
   private int id;
   private String nome;
