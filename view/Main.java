@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Main {
 
-  rivate AlunoController alunoController;
+  private AlunoController alunoController;
   private Scanner scanner;
 
   public Main(){
