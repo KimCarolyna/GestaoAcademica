@@ -1,3 +1,5 @@
+package br.edu.universidade;
+
 public class Alunodao {
   public void salvar(Aluno aluno){
     System.out.println("Aluno "  + aluno.getNome() + " salvo no banco de dados.");
