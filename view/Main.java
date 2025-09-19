@@ -2,11 +2,11 @@ import java.util.Scanner;
 
 public class Main {
 
-  private AlunoController alunocontroller;
+  rivate AlunoController alunoController;
   private Scanner scanner;
 
   public Main(){
-    this.alunoController = new AlunoController();
+   this.alunoController = new AlunoController();
     this.scanner = new Scanner(System.in);
   }
 
