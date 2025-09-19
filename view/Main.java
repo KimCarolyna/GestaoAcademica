@@ -1,3 +1,4 @@
+package br.edu.universidade;
 import java.util.Scanner;
 
 public class Main {
