@@ -3,47 +3,50 @@ import java.util.Scanner;
 
 public class Main {
 
-  private AlunoController alunoController;
-  private Scanner scanner;
+    private AlunoController alunoController;
+    private ProfessorController professorController;
+    private Scanner scanner;
 
-  public Main(){
-   this.alunoController = new AlunoController();
-    this.scanner = new Scanner(System.in);
-  }
+    public Main(){
+        Alunodao alunoDAO = new Alunodao();
+        this.alunoController = new AlunoController(alunoDAO);
 
-  public static void main (String[]args) {
-    Main view = new Main();
-    view.iniciarMenuPrincipal();
-  }
+        ProfessorDAO professorDAO = new ProfessorDAO();
+        this.professorController = new ProfessorController(professorDAO);
 
-  private void iniciarMenuPrincipal(){
-    int opcao;
+        this.scanner = new Scanner(System.in);
+    }
 
-    while (true) {
-      exibirMenuPrincipal();
-      opcao = scanner.nextInt();
-      scanner.nextLine();
+    public static void main (String[]args) {
+        Main view = new Main();
+        view.iniciarMenuPrincipal();
+    }
 
-      switch (opcao) {
-        case 1:
-          menuAlunos();
-          break;
-        case 2:
-          System.out.println("Opções de professores");
-          break;
-        
-        case 0:
-            System.out.println("Saindo do sistema...");
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {}
-            break;
+    private void iniciarMenuPrincipal(){
+        int opcao;
 
-        default:
-          System.out.println("Opção inválida");
-      }
+        while (true) {
+            exibirMenuPrincipal();
+            opcao = scanner.nextInt();
+            scanner.nextLine();
 
-      if (opcao == 0) {
+            switch (opcao) {
+                case 1:
+                    menuAlunos();
+                    break;
+                case 2:
+                    menuProfessores();
+                    break;
+
+                case 0:
+                    System.out.println("Saindo do sistema...");
+                    break;
+
+                default:
+                    System.out.println("Opção inválida");
+            }
+
+            if (opcao == 0) {
                 break;
             }
         }
@@ -56,7 +59,7 @@ public class Main {
         System.out.println("0. Sair");
         System.out.print("Escolha uma opção: ");
     }
-    
+
     private void menuAlunos() {
         int opcao;
         while (true) {
@@ -64,6 +67,7 @@ public class Main {
             System.out.println("1. Cadastrar Aluno");
             System.out.println("0. Voltar");
             System.out.print("Escolha uma opção: ");
+
             opcao = scanner.nextInt();
             scanner.nextLine();
 
@@ -72,12 +76,12 @@ public class Main {
                     cadastrarAluno();
                     break;
                 case 0:
-                    System.out.println("Voltando...");
+                    System.out.println("Voltando ao menu principal...");
                     break;
                 default:
                     System.out.println("Opção inválida!");
             }
-            
+
             if (opcao == 0) {
                 break;
             }
@@ -85,7 +89,7 @@ public class Main {
     }
 
     private void cadastrarAluno() {
-        System.out.print("Digite o ID do aluno: ");
+        System.out.print("Digite o ID do aluno (somente números): ");
         int id = scanner.nextInt();
         scanner.nextLine();
 
@@ -96,5 +100,50 @@ public class Main {
         String email = scanner.nextLine();
 
         alunoController.cadastrarAluno(id, nome, email);
+    }
+
+    private void menuProfessores() {
+        int opcao;
+        while (true) {
+            System.out.println("\n--- Menu Professores ---");
+            System.out.println("1. Cadastrar Professor");
+            System.out.println("0. Voltar");
+            System.out.print("Escolha uma opção: ");
+
+            opcao = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (opcao) {
+                case 1:
+                    cadastrarProfessor();
+                    break;
+                case 0:
+                    System.out.println("Voltando ao menu principal...");
+                    break;
+                default:
+                    System.out.println("Opção inválida!");
+            }
+
+            if (opcao == 0) {
+                break;
+            }
+        }
+    }
+
+    private void cadastrarProfessor() {
+        System.out.print("Digite o ID do professor (somente números): ");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.print("Digite o nome do professor: ");
+        String nome = scanner.nextLine();
+
+        System.out.print("Digite o CPF do professor: ");
+        String cpf = scanner.nextLine();
+
+        System.out.print("Digite o e-mail do professor: ");
+        String email = scanner.nextLine();
+
+        professorController.cadastrarProfessor(id, nome, cpf, email);
     }
 }
