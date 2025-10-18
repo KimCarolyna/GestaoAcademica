@@ -1,5 +1,11 @@
-package br.edu.universidade;
+package br.edu.universidade.view;
+
 import java.util.Scanner;
+import br.edu.universidade.AlunoController;
+import br.edu.universidade.ProfessorController;
+import br.edu.universidade.AlunoDao;
+import br.edu.universidade.ProfessorDao;
+
 
 public class Main {
 
@@ -8,11 +14,11 @@ public class Main {
     private Scanner scanner;
 
     public Main(){
-        Alunodao alunoDAO = new Alunodao();
+        AlunoDao alunoDAO = new AlunoDao();
         this.alunoController = new AlunoController(alunoDAO);
 
-        ProfessorDAO professorDAO = new ProfessorDAO();
-        this.professorController = new ProfessorController(professorDAO);
+        ProfessorDao professorDao = new ProfessorDao();
+        this.professorController = new ProfessorController(professorDao);
 
         this.scanner = new Scanner(System.in);
     }

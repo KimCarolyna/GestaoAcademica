@@ -1,15 +1,15 @@
 package br.edu.universidade;
 
 public class AlunoController {
-    private Alunodao alunoDAO;
+    private AlunoDao alunoDao;
 
-    public AlunoController(Alunodao alunoDAO) {
-        this.alunoDAO = alunoDAO;
+    public AlunoController(AlunoDao alunoDao) {
+        this.alunoDao = alunoDao;
     }
 
     public void cadastrarAluno(int id, String nome, String email) {
         Aluno aluno = new Aluno(id, nome, email);
-        alunoDAO.salvar(aluno);
+        alunoDao.salvar(aluno);
         System.out.println("Aluno cadastrado com sucesso!");
     }
 }

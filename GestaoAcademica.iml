@@ -6,7 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/dao" isTestSource="false" packagePrefix="br.edu.universidade" />
       <sourceFolder url="file://$MODULE_DIR$/model" isTestSource="false" packagePrefix="br.edu.universidade" />
       <sourceFolder url="file://$MODULE_DIR$/view" isTestSource="false" packagePrefix="br.edu.universidade" />
-    </content>
+      <sourceFolder url="file://$MODULE_DIR$/controller" isTestSource="false" packagePrefix="br.edu.universidade" />  </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

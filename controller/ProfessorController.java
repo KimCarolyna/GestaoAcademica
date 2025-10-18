@@ -1,15 +1,15 @@
 package br.edu.universidade;
 
 public class ProfessorController {
-    private ProfessorDAO professorDAO;
+    private ProfessorDao professorDao;
 
-    public ProfessorController(ProfessorDAO professorDAO) {
-        this.professorDAO = professorDAO;
+    public ProfessorController(ProfessorDao professorDao) {
+        this.professorDao = professorDao;
     }
 
     public void cadastrarProfessor(int id, String nome, String cpf, String email) {
         Professor professor = new Professor(id, nome, cpf, email);
-        professorDAO.salvar(professor);
+        professorDao.salvar(professor);
         System.out.println("Professor cadastrado com sucesso!");
     }
 }
