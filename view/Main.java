@@ -71,6 +71,7 @@ public class Main {
         while (true) {
             System.out.println("\n--- Menu Alunos ---");
             System.out.println("1. Cadastrar Aluno");
+            System.out.println("2. Consultar Aluno");
             System.out.println("0. Voltar");
             System.out.print("Escolha uma opção: ");
 
