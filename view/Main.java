@@ -115,12 +115,12 @@ public class Main {
         alunoController.cadastrarAluno(id, nome, email, cpf);
     }
 
-    private void consultarAluno() {
-    System.out.print("Digite a matricula do aluno que deseja consultar: ");
-    int id = scanner.nextInt();
+private void consultarAluno() {
+    System.out.print("Digite a matrícula do aluno: ");
+    int matricula = scanner.nextInt();
     scanner.nextLine();
 
-    String resultado = alunoController.consultarAlunoPorId(id);
+    String resultado = alunoController.consultarAlunoPorMatricula(matricula);
     System.out.println(resultado);
 }
 
@@ -129,6 +129,7 @@ public class Main {
         while (true) {
             System.out.println("\n--- Menu Professores ---");
             System.out.println("1. Cadastrar Professor");
+            System.out.println("2. Consultar Professor");
             System.out.println("0. Voltar");
             System.out.print("Escolha uma opção: ");
 
@@ -173,11 +174,11 @@ public class Main {
     }
     
     private void consultarProfessor() {
-    System.out.print("Digite o ID do professor que deseja consultar: ");
-    int id = scanner.nextInt();
-    scanner.nextLine();
-
-    String resultado = professorController.consultarProfessorPorId(id);
-    System.out.println(resultado);
+        System.out.print("Digite a matrícula do professor: ");
+        int matricula = scanner.nextInt();
+        scanner.nextLine();
+    
+        String resultado = professorController.consultarProfessorPorMatricula(matricula);
+        System.out.println(resultado);
     }
 }
