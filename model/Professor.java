@@ -17,6 +17,11 @@ public class Professor {
         this.email = email;
     }
 
+    @Override
+public String toString() {
+    return "Matrícula: " + idProfessor + "\nNome: " + nome + "\nCPF: " + cpf + "\nEmail: " + email + "\nFormação: " + formacao + "\nÁrea de Atuação: " + areaAtuacao + "\nTelefone: " + telefone + "\nRemuneração: R$ " + remuneracao;
+}
+
     public int getIdProfessor() { return idProfessor; }
     public String getNome() { return nome; }
     public String getCpf() { return cpf; }
