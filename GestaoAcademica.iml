@@ -6,8 +6,18 @@
       <sourceFolder url="file://$MODULE_DIR$/dao" isTestSource="false" packagePrefix="br.edu.universidade" />
       <sourceFolder url="file://$MODULE_DIR$/model" isTestSource="false" packagePrefix="br.edu.universidade" />
       <sourceFolder url="file://$MODULE_DIR$/view" isTestSource="false" packagePrefix="br.edu.universidade" />
-      <sourceFolder url="file://$MODULE_DIR$/controller" isTestSource="false" packagePrefix="br.edu.universidade" />  </content>
+      <sourceFolder url="file://$MODULE_DIR$/controller" isTestSource="false" packagePrefix="br.edu.universidade" />
+    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../../Banco de dados/mysql-connector-j-9.4.0/mysql-connector-j-9.4.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>
