@@ -25,7 +25,7 @@ public class AlunoDao {
 
             System.out.println("Aluno "  + aluno.getNome() + " salvo no banco de dados.");
         } catch (SQLException e) {
-            System.err.println("Erro ao salvar aluno no DB: " + e.getMessage());
+            System.err.println("Erro ao salvar aluno no BD: " + e.getMessage());
         } finally {
             try {
                 if (stmt != null) stmt.close();
@@ -35,14 +35,13 @@ public class AlunoDao {
             }
         }
     }
-
-    public Aluno buscarPorId(int id){
-        System.out.println("Buscando aluno com ID " + id);
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
+    
+    public Aluno buscarPorMatricula(int matricula) {
+    for (Aluno aluno : listaAlunos) {
+        if (aluno.getId() == matricula) {
+            return aluno;
         }
-        return null;
+    }
+    return null;
     }
 }
