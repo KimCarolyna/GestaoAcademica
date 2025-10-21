@@ -7,8 +7,8 @@ public class AlunoController {
         this.alunoDao = alunoDao;
     }
 
-    public void cadastrarAluno(int id, String nome, String email) {
-        Aluno aluno = new Aluno(id, nome, email);
+    public void cadastrarAluno(int id, String nome, String email, String cpf) {
+        Aluno aluno = new Aluno(id, nome, email, cpf);
         alunoDao.salvar(aluno);
         System.out.println("Aluno cadastrado com sucesso!");
     }

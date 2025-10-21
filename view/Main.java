@@ -105,7 +105,10 @@ public class Main {
         System.out.print("Digite o e-mail do aluno: ");
         String email = scanner.nextLine();
 
-        alunoController.cadastrarAluno(id, nome, email);
+        System.out.print("Digite o CPF do aluno: ");
+        String cpf = scanner.nextLine();
+
+        alunoController.cadastrarAluno(id, nome, email, cpf);
     }
 
     private void menuProfessores() {
