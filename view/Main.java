@@ -116,7 +116,7 @@ public class Main {
     }
 
     private void consultarAluno() {
-    System.out.print("Digite a matrícula do aluno que deseja consultar: ");
+    System.out.print("Digite a matricula do aluno que deseja consultar: ");
     int id = scanner.nextInt();
     scanner.nextLine();
 
@@ -138,6 +138,9 @@ public class Main {
             switch (opcao) {
                 case 1:
                     cadastrarProfessor();
+                    break;
+                case 2:
+                    consultarProfessor();
                     break;
                 case 0:
                     System.out.println("Voltando ao menu principal...");
@@ -167,5 +170,14 @@ public class Main {
         String email = scanner.nextLine();
 
         professorController.cadastrarProfessor(id, nome, cpf, email);
+    }
+    
+    private void consultarProfessor() {
+    System.out.print("Digite o ID do professor que deseja consultar: ");
+    int id = scanner.nextInt();
+    scanner.nextLine();
+
+    String resultado = professorController.consultarProfessorPorId(id);
+    System.out.println(resultado);
     }
 }
