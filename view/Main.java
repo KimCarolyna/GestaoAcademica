@@ -82,6 +82,9 @@ public class Main {
                 case 1:
                     cadastrarAluno();
                     break;
+                case 2:
+                    consultarAluno();
+                    break;
                 case 0:
                     System.out.println("Voltando ao menu principal...");
                     break;
@@ -111,6 +114,15 @@ public class Main {
 
         alunoController.cadastrarAluno(id, nome, email, cpf);
     }
+
+    private void consultarAluno() {
+    System.out.print("Digite a matrícula do aluno que deseja consultar: ");
+    int id = scanner.nextInt();
+    scanner.nextLine();
+
+    String resultado = alunoController.consultarAlunoPorId(id);
+    System.out.println(resultado);
+}
 
     private void menuProfessores() {
         int opcao;
