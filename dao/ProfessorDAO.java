@@ -4,4 +4,13 @@ public class ProfessorDao {
     public void salvar(Professor professor) {
         System.out.println("Professor " + professor.getNome() + " salvo no banco de dados.");
     }
+    
+    public Professor buscarPorMatricula(int matricula) {
+    for (Professor professor : listaProfessores) {
+        if (professor.getId() == matricula) {
+            return professor;
+        }
+    }
+    return null;
+    }
 }
