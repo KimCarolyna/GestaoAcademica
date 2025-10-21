@@ -13,6 +13,11 @@ public class Aluno {
         this.cpf = cpf;
     }
 
+    @Override
+    public String toString() {
+    return "Matrícula: " + id + "\nNome: " + nome + "\nEmail: " + email + "\nCPF: " + cpf;
+}
+
     public int getId() {
 
         return id;
