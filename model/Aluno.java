@@ -5,7 +5,7 @@ public class Aluno {
     private String nome;
     private String email;
     private String cpf;
-    private String disciplinaMatriculada; // NOVO CAMPO
+    private String disciplinaMatriculada;
 
     public Aluno(int id, String nome, String email, String cpf) {
         this.id = id;
