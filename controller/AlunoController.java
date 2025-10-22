@@ -13,12 +13,12 @@ public class AlunoController {
         System.out.println("Aluno cadastrado com sucesso!");
     }
 
-    public String consultarAlunoPorMatricula(int matricula) {
-    Aluno aluno = alunoDao.buscarPorMatricula(matricula);
-    if (aluno != null) {
-        return aluno.toString();
-    } else {
-        return "Aluno não encontrado.";
+    public String consultarAlunoPorCpf(String cpf) {
+        Aluno aluno = alunoDao.buscarPorCpf(cpf);
+        if (aluno != null) {
+            return aluno.toString();
+        } else {
+            return "Aluno não encontrado.";
         }
     }
 }

@@ -9,6 +9,7 @@ public class Professor {
     private String email;
     private String telefone;
     private double remuneracao;
+    private String disciplinasLecionadas;
 
     public Professor(int idProfessor, String nome, String cpf, String email) {
         this.idProfessor = idProfessor;
@@ -18,22 +19,70 @@ public class Professor {
     }
 
     @Override
-public String toString() {
-    return "Matrícula: " + idProfessor + "\nNome: " + nome + "\nCPF: " + cpf + "\nEmail: " + email + "\nFormação: " + formacao + "\nÁrea de Atuação: " + areaAtuacao + "\nTelefone: " + telefone + "\nRemuneração: R$ " + remuneracao;
-}
+    public String toString() {
+        return "Matrícula: " + idProfessor + "\nNome: " + nome + "\nCPF: " + cpf + "\nEmail: " + email +
+                "\nFormação: " + formacao + "\nÁrea de Atuação: " + areaAtuacao + "\nTelefone: " + telefone +
+                "\nRemuneração: R$ " + remuneracao +
+                "\nDisciplinas Lecionadas: " + (disciplinasLecionadas != null && !disciplinasLecionadas.isEmpty() ? disciplinasLecionadas : "Nenhuma");
+    }
 
-    public int getIdProfessor() { return idProfessor; }
-    public String getNome() { return nome; }
-    public String getCpf() { return cpf; }
-    public String getEmail() { return email; }
-    public double getRemuneracao() { return remuneracao; }
-    
-    public void setIdProfessor(int idProfessor) { this.idProfessor = idProfessor; }
-    public void setNome(String nome) { this.nome = nome; }
-    public void setCpf(String cpf) { this.cpf = cpf; }
-    public void setFormacao(String formacao) { this.formacao = formacao; }
-    public void setAreaAtuacao(String areaAtuacao) { this.areaAtuacao = areaAtuacao; }
-    public void setEmail(String email) { this.email = email; }
-    public void setTelefone(String telefone) { this.telefone = telefone; }
-    public void setRemuneracao(double remuneracao) { this.remuneracao = remuneracao; }
+    public int getIdProfessor() {
+        return idProfessor;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public double getRemuneracao() {
+        return remuneracao;
+    }
+
+    public void setIdProfessor(int idProfessor) {
+        this.idProfessor = idProfessor;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public void setFormacao(String formacao) {
+        this.formacao = formacao;
+    }
+
+    public void setAreaAtuacao(String areaAtuacao) {
+        this.areaAtuacao = areaAtuacao;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public void setRemuneracao(double remuneracao) {
+        this.remuneracao = remuneracao;
+    }
+
+    public String getDisciplinasLecionadas() {
+        return disciplinasLecionadas;
+    }
+
+    public void setDisciplinasLecionadas(String disciplinasLecionadas) {
+        this.disciplinasLecionadas = disciplinasLecionadas;
+    }
 }

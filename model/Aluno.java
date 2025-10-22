@@ -5,6 +5,7 @@ public class Aluno {
     private String nome;
     private String email;
     private String cpf;
+    private String disciplinaMatriculada; // NOVO CAMPO
 
     public Aluno(int id, String nome, String email, String cpf) {
         this.id = id;
@@ -15,31 +16,27 @@ public class Aluno {
 
     @Override
     public String toString() {
-    return "Matrícula: " + id + "\nNome: " + nome + "\nEmail: " + email + "\nCPF: " + cpf;
-}
+        return "\nMatrícula: " + id + "\nNome: " + nome + "\nEmail: " + email + "\nCPF: " + cpf +
+                "\nDisciplina Matriculada: " + (disciplinaMatriculada != null ? disciplinaMatriculada : "Nenhuma");
+    }
 
     public int getId() {
-
         return id;
     }
 
     public void setId(int id) {
-
         this.id = id;
     }
 
     public String getNome() {
-
         return nome;
     }
 
     public void setNome(String nome) {
-
         this.nome = nome;
     }
 
     public String getEmail() {
-
         return email;
     }
 
@@ -53,5 +50,13 @@ public class Aluno {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+
+    public String getDisciplinaMatriculada() {
+        return disciplinaMatriculada;
+    }
+
+    public void setDisciplinaMatriculada(String disciplinaMatriculada) {
+        this.disciplinaMatriculada = disciplinaMatriculada;
     }
 }

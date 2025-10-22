@@ -12,12 +12,13 @@ public class ProfessorController {
         professorDao.salvar(professor);
         System.out.println("Professor cadastrado com sucesso!");
     }
-    public String consultarProfessorPorMatricula(int matricula) {
-    Professor professor = professorDao.buscarPorMatricula(matricula);
-    if (professor != null) {
-        return professor.toString();
-    } else {
-        return "Professor não encontrado.";
+
+    public String consultarProfessorPorCpf(String cpf) {
+        Professor professor = professorDao.buscarPorCpf(cpf);
+        if (professor != null) {
+            return professor.toString();
+        } else {
+            return "Professor não encontrado.";
         }
     }
 }

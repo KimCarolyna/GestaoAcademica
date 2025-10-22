@@ -13,7 +13,7 @@ public class Main {
     private ProfessorController professorController;
     private Scanner scanner;
 
-    public Main(){
+    public Main() {
         AlunoDao alunoDAO = new AlunoDao();
         this.alunoController = new AlunoController(alunoDAO);
 
@@ -23,12 +23,12 @@ public class Main {
         this.scanner = new Scanner(System.in);
     }
 
-    public static void main (String[]args) {
+    public static void main(String[] args) {
         Main view = new Main();
         view.iniciarMenuPrincipal();
     }
 
-    private void iniciarMenuPrincipal(){
+    private void iniciarMenuPrincipal() {
         int opcao;
 
         while (true) {
@@ -99,7 +99,7 @@ public class Main {
     }
 
     private void cadastrarAluno() {
-        System.out.print("Digite o ID do aluno (somente números): ");
+        System.out.print("\nDigite o ID do aluno (somente números): ");
         int id = scanner.nextInt();
         scanner.nextLine();
 
@@ -115,14 +115,13 @@ public class Main {
         alunoController.cadastrarAluno(id, nome, email, cpf);
     }
 
-private void consultarAluno() {
-    System.out.print("Digite a matrícula do aluno: ");
-    int matricula = scanner.nextInt();
-    scanner.nextLine();
+    private void consultarAluno() {
+        System.out.print("\nDigite o CPF do aluno: ");
+        String cpf = scanner.nextLine();
 
-    String resultado = alunoController.consultarAlunoPorMatricula(matricula);
-    System.out.println(resultado);
-}
+        String resultado = alunoController.consultarAlunoPorCpf(cpf);
+        System.out.println(resultado);
+    }
 
     private void menuProfessores() {
         int opcao;
@@ -172,13 +171,12 @@ private void consultarAluno() {
 
         professorController.cadastrarProfessor(id, nome, cpf, email);
     }
-    
+
     private void consultarProfessor() {
-        System.out.print("Digite a matrícula do professor: ");
-        int matricula = scanner.nextInt();
-        scanner.nextLine();
-    
-        String resultado = professorController.consultarProfessorPorMatricula(matricula);
+        System.out.print("Digite o CPF do professor: "); // Pede o CPF
+        String cpf = scanner.nextLine(); // Lê como String
+
+        String resultado = professorController.consultarProfessorPorCpf(cpf);
         System.out.println(resultado);
     }
 }

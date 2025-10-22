@@ -7,8 +7,8 @@ import java.sql.SQLException;
 
 public class AlunoDao {
 
-    public void salvar(Aluno aluno){
-        
+    public void salvar(Aluno aluno) {
+
         String sql = "INSERT INTO aluno (id_aluno, nome, cpf, email) VALUES (?, ?, ?, ?)";
 
         Connection conn = null;
@@ -25,7 +25,7 @@ public class AlunoDao {
 
             stmt.executeUpdate();
 
-            System.out.println("Aluno "  + aluno.getNome() + " salvo no banco de dados.");
+            System.out.println("Aluno " + aluno.getNome() + " salvo no banco de dados.");
         } catch (SQLException e) {
             System.err.println("Erro ao salvar aluno no BD: " + e.getMessage());
         } finally {
@@ -37,41 +37,43 @@ public class AlunoDao {
             }
         }
     }
-    
-    public Aluno buscarPorMatricula(int matricula) {
-        
-        String sql = "SELECT a.id_aluno, a.nome, a.email, a.cpf " +
-                     "FROM aluno a " +
-                     "JOIN matricula m ON a.id_aluno = m.id_aluno " +
-                     "WHERE m.id_matricula = ?";
+
+    public Aluno buscarPorCpf(String cpf) {
+
+        String sql = "SELECT a.id_aluno, a.nome, a.email, a.cpf, d.nome AS nome_disciplina " +
+                "FROM aluno a " +
+                "LEFT JOIN matricula m ON a.id_aluno = m.id_aluno " +
+                "LEFT JOIN disciplina d ON m.id_disciplina = d.id_disciplina " +
+                "WHERE a.cpf = ?";
 
         Connection conn = null;
         PreparedStatement stmt = null;
-        ResultSet rs = null; 
+        ResultSet rs = null;
         Aluno aluno = null;
 
         try {
             conn = Conexao.conectar();
             stmt = conn.prepareStatement(sql);
-            stmt.setInt(1, matricula);
-            
-            rs = stmt.executeQuery(); // Executa a consulta SELECT
+            stmt.setString(1, cpf);
+
+            rs = stmt.executeQuery();
 
             if (rs.next()) {
-                
+
                 int id = rs.getInt("id_aluno");
                 String nome = rs.getString("nome");
                 String email = rs.getString("email");
-                String cpf = rs.getString("cpf");
-                
-               
-                aluno = new Aluno(id, nome, email, cpf);
+                String alunoCpf = rs.getString("cpf");
+                String nomeDisciplina = rs.getString("nome_disciplina");
+
+                aluno = new Aluno(id, nome, email, alunoCpf);
+                aluno.setDisciplinaMatriculada(nomeDisciplina);
             }
 
         } catch (SQLException e) {
-            System.err.println("Erro ao buscar aluno por matrícula: " + e.getMessage());
+            System.err.println("Erro ao buscar aluno por CPF: " + e.getMessage());
         } finally {
-            
+
             try {
                 if (rs != null) rs.close();
                 if (stmt != null) stmt.close();
