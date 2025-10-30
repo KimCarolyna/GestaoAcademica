@@ -10,6 +10,7 @@ public class AlunoDao {
     public void salvar(Aluno aluno) {
 
         String sql = "INSERT INTO aluno (id_aluno, nome, cpf, email) VALUES (?, ?, ?, ?)";
+        String sqlMatricula = "INSERT INTO matricula (id_aluno, id_disciplina, data_matricula) VALUES (?, ?, CURDATE())";
 
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -22,10 +23,14 @@ public class AlunoDao {
             stmt.setString(2, aluno.getNome());
             stmt.setString(3, aluno.getCpf());
             stmt.setString(4, aluno.getEmail());
-
             stmt.executeUpdate();
 
-            System.out.println("Aluno " + aluno.getNome() + " salvo no banco de dados.");
+            stmtMatricula = conn.prepareStatement(sqlMatricula);
+            stmtMatricula.setInt(1, aluno.getId());
+            stmtMatricula.setInt(2, aluno.getIdDisciplina());
+            stmtMatricula.executeUpdate();
+
+           System.out.println("Aluno " + aluno.getNome() + " e matrícula salvos com sucesso.");
         } catch (SQLException e) {
             System.err.println("Erro ao salvar aluno no BD: " + e.getMessage());
         } finally {
