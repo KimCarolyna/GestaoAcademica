@@ -109,10 +109,12 @@ public class Main {
         System.out.print("Digite o e-mail do aluno: ");
         String email = scanner.nextLine();
 
-        System.out.print("Digite o CPF do aluno: ");
-        String cpf = scanner.nextLine();
+        System.out.print("Digite o ID da disciplina para matrícula: ");
+        int idDisciplina = scanner.nextInt();
+        
+        scanner.nextLine();
 
-        alunoController.cadastrarAluno(id, nome, email, cpf);
+    alunoController.cadastrarAluno(id, nome, email, cpf, idDisciplina);
     }
 
     private void consultarAluno() {
