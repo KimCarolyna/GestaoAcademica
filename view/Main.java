@@ -175,8 +175,8 @@ public class Main {
     }
 
     private void consultarProfessor() {
-        System.out.print("Digite o CPF do professor: "); // Pede o CPF
-        String cpf = scanner.nextLine(); // Lê como String
+        System.out.print("Digite o CPF do professor: ");
+        String cpf = scanner.nextLine();
 
         String resultado = professorController.consultarProfessorPorCpf(cpf);
         System.out.println(resultado);
