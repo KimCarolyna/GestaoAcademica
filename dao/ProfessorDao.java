@@ -7,7 +7,33 @@ import java.sql.SQLException;
 
 public class ProfessorDao {
     public void salvar(Professor professor) {
-        System.out.println("Professor " + professor.getNome() + " salvo no banco de dados.");
+        String sql = "INSERT INTO professor (id_professor, nome, cpf, email) VALUES (?, ?, ?, ?)";
+
+        Connection conn = null;
+        PreparedStatement stmt = null;
+
+        try {
+            conn = Conexao.conectar();
+            stmt = conn.prepareStatement(sql);
+
+            stmt.setInt(1, professor.getId());
+            stmt.setString(2, professor.getNome());
+            stmt.setString(3, professor.getCpf());
+            stmt.setString(4, professor.getEmail());
+
+            stmt.executeUpdate();
+
+            System.out.println("Professor " + professor.getNome() + " salvo no banco de dados.");
+        } catch (SQLException e) {
+            System.err.println("Erro ao salvar professor no BD: " + e.getMessage());
+        } finally {
+            try {
+                if (stmt != null) stmt.close();
+                Conexao.fechar(conn);
+            } catch (SQLException e) {
+                System.err.println("Erro ao fechar recursos: " + e.getMessage());
+            }
+        }
     }
 
     public Professor buscarPorCpf(String cpf) {
