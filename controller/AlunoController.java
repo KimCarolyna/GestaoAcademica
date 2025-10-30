@@ -7,12 +7,11 @@ public class AlunoController {
         this.alunoDao = alunoDao;
     }
 
-    public void cadastrarAluno(int id, String nome, String email, String cpf) {
-        Aluno aluno = new Aluno(id, nome, email, cpf);
-        alunoDao.salvar(aluno);
-        System.out.println("Aluno cadastrado com sucesso!");
-    }
-
+    public void cadastrarAluno(int id, String nome, String email, String cpf, int idDisciplina) {
+    Aluno aluno = new Aluno(id, nome, email, cpf);
+    aluno.setIdDisciplina(idDisciplina);
+    alunoDao.salvar(aluno);
+}
     public String consultarAlunoPorCpf(String cpf) {
         Aluno aluno = alunoDao.buscarPorCpf(cpf);
         if (aluno != null) {
