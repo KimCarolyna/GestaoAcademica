@@ -20,6 +20,10 @@ public class Aluno {
                 "\nDisciplina Matriculada: " + (disciplinaMatriculada != null ? disciplinaMatriculada : "Nenhuma");
     }
 
+    public String getDisciplinaMatriculada() {
+        return disciplinaMatriculada;
+    }
+
     public int getId() {
         return id;
     }
